@@ -12,6 +12,7 @@ BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	gtkmm-devel >= 2.2.0
 BuildRequires:	libxml++1-devel >= 0.22
+BuildRequires:	libsigc++12-devel
 Requires:	ghostscript
 Requires:	libxslt-progs
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -37,6 +38,8 @@ których typowymi przyk³adami s± magazyny, broszury i druczki.
 %setup -q
 
 %build
+sed -e s/gtkmm-2.0/gtkmm-2.4/ configure.ac > configure.ac.tmp
+mv -f configure.ac.tmp configure.ac
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
