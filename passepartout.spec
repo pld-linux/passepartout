@@ -1,18 +1,20 @@
 Summary:	Passepartout - a DTP application for X
 Summary(pl):	Passepartout - aplikacja DTP dla X
 Name:		passepartout
-Version:	0.4
-Release:	3
+Version:	0.5
+Release:	0.1
 License:	BSD
 Group:		X11/Applications/Publishing
 Source0:	http://www.stacken.kth.se/project/pptout/files/%{name}-%{version}.tar.bz2
-# Source0-md5:	45bcf993d165daa654b6f9bce4160be2
+# Source0-md5:	9b3dc06f8c00ffa6420495056b5e2cc7
+Patch0:		%{name}-gtkmm24.patch
 URL:		http://www.stacken.kth.se/project/pptout/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
-BuildRequires:	gtkmm-devel >= 2.2.0
-BuildRequires:	libxml++1-devel >= 0.22
-BuildRequires:	libsigc++12-devel
+BuildRequires:	gtkmm-devel >= 2.4.0
+BuildRequires:	libgnomecanvasmm-devel >= 2.6.0
+BuildRequires:	libxml++-devel >= 2.6.0
+BuildRequires:	libsigc++-devel >= 2.0
 Requires:	ghostscript
 Requires:	libxslt-progs
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -36,10 +38,9 @@ których typowymi przyk³adami s± magazyny, broszury i druczki.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
-sed -e s/gtkmm-2.0/gtkmm-2.4/ configure.ac > configure.ac.tmp
-mv -f configure.ac.tmp configure.ac
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
@@ -52,7 +53,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-
 
 %clean
 rm -rf $RPM_BUILD_ROOT
