@@ -8,6 +8,7 @@ Group:		X11/Applications/Publishing
 Source0:	http://www.stacken.kth.se/project/pptout/files/%{name}-%{version}.tar.bz2
 # Source0-md5:	45bcf993d165daa654b6f9bce4160be2
 URL:		http://www.stacken.kth.se/project/pptout/
+Patch0:		%{name}-gtkmm.patch
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	gtkmm-devel >= 2.2.0
@@ -35,6 +36,7 @@ których typowymi przyk³adami s± magazyny, broszury i druczki.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__aclocal}
