@@ -7,9 +7,6 @@ License:	BSD
 Group:		X11/Applications/Publishing
 Source0:	http://www.stacken.kth.se/project/pptout/files/%{name}-%{version}.tar.bz2
 # Source0-md5:	84ca77ac477b3ae53b841023e78adc44
-Patch0:		http://www.stacken.kth.se/project/pptout/files/passepartout-0.2-assert.patch
-Patch1:		%{name}-DESTDIR.patch
-Patch2:		%{name}-dirs.patch
 URL:		http://www.stacken.kth.se/project/pptout/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -38,9 +35,6 @@ których typowymi przyk³adami s± magazyny, broszury i druczki.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
 
 %build
 %{__aclocal}
@@ -56,11 +50,13 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS BUGS NEWS README doc/*.html
+%doc AUTHORS BUGS NEWS README doc/*.html 
 %attr(755,root,root) %{_bindir}/*
-%{_datadir}/%{name}
+%{_datadir}/xml/%{name}
+%{_mandir}/man1/*
