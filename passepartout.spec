@@ -1,12 +1,12 @@
 Summary:	Passepartout - a DTP application for X
 Summary(pl):	Passepartout - aplikacja DTP dla X
 Name:		passepartout
-Version:	0.2
+Version:	0.3
 Release:	1
 License:	BSD
 Group:		X11/Applications/Publishing
 Source0:	http://www.stacken.kth.se/project/pptout/files/%{name}-%{version}.tar.bz2
-# Source0-md5:	92df4384de96b308690557cd4d11339e
+# Source0-md5:	84ca77ac477b3ae53b841023e78adc44
 Patch0:		http://www.stacken.kth.se/project/pptout/files/passepartout-0.2-assert.patch
 Patch1:		%{name}-DESTDIR.patch
 Patch2:		%{name}-dirs.patch
