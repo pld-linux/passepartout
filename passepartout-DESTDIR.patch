@@ -1,0 +1,30 @@
+--- passepartout-0.2/doc/examples/Makefile.am.orig	Wed Jun 18 19:28:08 2003
++++ passepartout-0.2/doc/examples/Makefile.am	Tue Jul 15 11:17:26 2003
+@@ -7,8 +7,10 @@
+ # Make symbolic links to the stylesheets:
+ # (Remove existing stylesheets first; the -f flag for ln is not portable.)
+ install-data-hook:
+-	rm -f $(docdir)/examples/*.xslt
+-	ln -s $(datadir)/xml/$(PACKAGE)/*.xslt $(docdir)/examples
++	rm -f $(DESTDIR)$(docdir)/examples/*.xslt
++	for f in $(DESTDIR)$(xmldir)/*.xslt ; do \
++		ln -s $(xmldir)/`basename $$f` $(DESTDIR)$(docdir)/examples ; \
++	done
+ 
+ uninstall-hook:
+ 	rm -f $(docdir)/examples/*.xslt
+--- passepartout-0.2/doc/Makefile.am.orig	Wed Jun 18 19:26:43 2003
++++ passepartout-0.2/doc/Makefile.am	Tue Jul 15 11:20:31 2003
+@@ -8,8 +8,10 @@
+ # Make symbolic links to the stylesheets:
+ # (Remove existing stylesheets first; the -f flag for ln is not portable.)
+ install-data-hook:
+-	rm -f $(docdir)/*.xslt
+-	ln -s $(datadir)/xml/$(PACKAGE)/*.xslt $(docdir)
++	rm -f $(DESTDIR)$(docdir)/*.xslt
++	for f in $(DESTDIR)$(xmldir)/*.xslt ; do \
++		ln -s $(xmldir)/`basename $$f` $(DESTDIR)$(docdir) ; \
++	done
+ 
+ uninstall-hook:
+ 	rm -f $(docdir)/*.xslt
