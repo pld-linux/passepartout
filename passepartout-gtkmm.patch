@@ -1,0 +1,12 @@
+diff -ur passepartout-0.4.orig/configure.ac passepartout-0.4/configure.ac
+--- passepartout-0.4.orig/configure.ac	2004-01-14 20:51:45.000000000 +0100
++++ passepartout-0.4/configure.ac	2004-08-08 23:25:58.913822816 +0200
+@@ -83,7 +83,7 @@
+ 
+ AC_SUBST([GTKMM_LIBS])
+ AC_SUBST([GTKMM_CFLAGS])
+-AC_PKG_CONFIG([GTKMM], [gtkmm-2.0])
++AC_PKG_CONFIG([GTKMM], [gtkmm-2.4])
+ 
+ AC_SUBST([GTHREAD_LIBS])
+ AC_PKG_CONFIG([GTHREAD], [gthread-2.0])
