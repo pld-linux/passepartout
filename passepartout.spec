@@ -11,7 +11,7 @@ URL:		http://www.stacken.kth.se/project/pptout/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	gtkmm-devel >= 2.2.0
-BuildRequires:	libxml1++-devel >= 0.22
+BuildRequires:	libxml++1-devel >= 0.22
 Requires:	ghostscript
 Requires:	libxslt-progs
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
