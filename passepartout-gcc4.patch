@@ -1,0 +1,42 @@
+--- passepartout-0.6/src/xml2ps/canvas.hh.orig	2004-07-22 00:00:34.000000000 +0200
++++ passepartout-0.6/src/xml2ps/canvas.hh	2006-12-24 01:24:10.602807658 +0100
+@@ -52,7 +52,7 @@
+     HBox hbox(bool span, float margin_left, float margin_right, 
+ 	      float ascender, float descender);
+     
+-    virtual void xml2ps::Canvas::addRelObstacle
++    virtual void addRelObstacle
+     (const float left, const float bottom, const float right, const float top);
+     
+     // Check where the current column starts.
+--- passepartout-0.6/src/pptout/propertiesdialog.h.orig	2004-04-16 21:03:56.000000000 +0200
++++ passepartout-0.6/src/pptout/propertiesdialog.h	2006-12-24 02:07:37.311355513 +0100
+@@ -39,7 +39,7 @@
+   // no destructor
+   ~PropertiesDialog();
+ 
+-  void PropertiesDialog::show_page_contents(GtkNotebookPage*, guint index);
++  void show_page_contents(GtkNotebookPage*, guint index);
+ 
+   Gtk::Notebook book;
+   std::vector<PropBase*> pages;
+--- passepartout-0.6/src/pptout/document/group.h.orig	2006-12-24 01:31:32.651998000 +0100
++++ passepartout-0.6/src/pptout/document/group.h	2006-12-24 01:45:17.531005782 +0100
+@@ -30,7 +30,7 @@
+   void set_flow_around(bool);
+   bool get_flow_around() const;
+   Boundary get_obstacle_boundary() const;
+-  BoundaryVect Group::obstacle_list() const;
++  BoundaryVect obstacle_list() const;
+   
+   void add(Pagent* obj);
+   Pagent* ungroup(Pagent* obj);
+@@ -55,7 +55,7 @@
+   /** Raised on direct changes to the group (i.e. new / ungrouped member) */
+   sigc::signal<void> group_changed_signal; 
+ private:
+-  Boundary Group::get_untransformed_box() const;
++  Boundary get_untransformed_box() const;
+   
+   ChildVec childs;
+ };
