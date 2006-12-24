@@ -1,0 +1,59 @@
+--- passepartout-0.6/src/ps/Makefile.am.orig	2004-10-07 14:55:52.000000000 +0200
++++ passepartout-0.6/src/ps/Makefile.am	2006-12-24 01:21:00.519975455 +0100
+@@ -15,8 +15,7 @@
+ libps_a_CXXFLAGS += -I$(top_srcdir)/src
+ 
+ examinepdf_CXXFLAGS = $(libps_a_CXXFLAGS)
+-examinepdf_LDADD = $(GTKMM_LIBS) \
+-	-L. -lps -L../fonts -lfonts -lps -L../util -lpptutil
++examinepdf_LDADD = libps.a ../fonts/libfonts.a libps.a ../util/libpptutil.a $(GTKMM_LIBS)
+ examinepdf_DEPENDENCIES = libps.a
+ 
+ #libps_a_LIBADD = $(GTKMM_LIBS)
+@@ -27,5 +26,5 @@
+ runtest_CXXFLAGS = -I$(top_srcdir)/src
+ runtest_CXXFLAGS += $(GTKMM_CFLAGS)
+ runtest_DEPENDENCIES = ../util/libpptutil.a $(noinst_LIBRARIES)
+-runtest_LDADD = -L../testbed -lppttest -L. -lps -L../util -lpptutil \
++runtest_LDADD = ../testbed/libppttest.a libps.a ../util/libpptutil.a \
+ 		$(GTKMM_LIBS)
+--- passepartout-0.6/src/xml2ps/Makefile.am.orig	2006-12-24 01:02:00.811027000 +0100
++++ passepartout-0.6/src/xml2ps/Makefile.am	2006-12-24 01:28:50.022730894 +0100
+@@ -20,8 +20,9 @@
+ 
+ xml2ps_CXXFLAGS = $(libxml2ps_a_CXXFLAGS)
+ 
+-xml2ps_LDADD = $(XMLPP_LIBS) $(GTKMM_LIBS) $(GNOMECANVAS_LIBS)\
+-	libxml2ps.a ../fonts/libfonts.a ../ps/libps.a ../util/libpptutil.a 
++xml2ps_LDADD = \
++	libxml2ps.a ../fonts/libfonts.a ../ps/libps.a ../util/libpptutil.a \
++	$(XMLPP_LIBS) $(GTKMM_LIBS) $(GNOMECANVAS_LIBS)
+ 
+ #install DTDs and XSLTs in $(datadir)/xml/passepartout/
+ xmldir = $(datadir)/xml/$(PACKAGE)
+--- passepartout-0.6/src/pptout/Makefile.am.orig	2006-12-24 01:01:57.398832000 +0100
++++ passepartout-0.6/src/pptout/Makefile.am	2006-12-24 01:30:46.209351991 +0100
+@@ -30,14 +30,12 @@
+ 
+ passepartout_CXXFLAGS += -I$(top_srcdir)/src -D'XMLPATH=$(xmldir)'
+ 
+-passepartout_LDADD = $(XMLPP_LIBS) $(GTKMM_LIBS) $(GNOMECANVAS_LIBS) \
+-		$(GTHREAD_LIBS) $(GNOME_LIBS) $(GNOMEVFS_LIBS)
+-
+ pptpartlibs= document/libdocument.a ../xml2ps/libxml2ps.a	\
+ 	../fonts/libfonts.a ../ps/libps.a			\
+ 	../util/libpptutil.a widget/libwidget.a
+ 
+-passepartout_LDADD += $(pptpartlibs)
++passepartout_LDADD = $(pptpartlibs) $(XMLPP_LIBS) $(GTKMM_LIBS) $(GNOMECANVAS_LIBS) \
++		$(GTHREAD_LIBS) $(GNOME_LIBS) $(GNOMEVFS_LIBS)
+ 
+ # Extra dependencies for builddate, so it is rebuilt every time anything else
+ # is rebuilt
+@@ -47,4 +45,4 @@
+ 
+ # build a string out of the contents of AUTHORS
+ authors.cc: $(top_srcdir)/AUTHORS
+-	awk 'BEGIN {print "const char *authors ="} {print "\"" $$0 "\\n\""} END {print ";"}' $(top_srcdir)/AUTHORS > authors.cc
+\ Brak znaku nowej linii na koñcu pliku
++	awk 'BEGIN {print "const char *authors ="} {print "\"" $$0 "\\n\""} END {print ";"}' $(top_srcdir)/AUTHORS > authors.cc
