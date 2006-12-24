@@ -1,0 +1,11 @@
+--- passepartout-0.6/configure.ac.orig	2006-12-24 00:55:50.989952000 +0100
++++ passepartout-0.6/configure.ac	2006-12-24 01:00:36.818240668 +0100
+@@ -30,7 +30,7 @@
+ # check for libxml++ 
+ AC_SUBST([XMLPP_LIBS])
+ AC_SUBST([XMLPP_CFLAGS])
+-PKG_CHECK_MODULES([XMLPP], libxml++-1.0 >= 1.0)
++PKG_CHECK_MODULES([XMLPP], libxml++-2.6 >= 1.0)
+ AC_APPLY_RPATH([XMLPP_LIBS])
+ 
+ AC_SUBST([GTKMM_LIBS])
