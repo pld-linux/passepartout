@@ -2,15 +2,18 @@ Summary:	Passepartout - a DTP application for X
 Summary(pl):	Passepartout - aplikacja DTP dla X
 Name:		passepartout
 Version:	0.6
-Release:	0.2
+Release:	1
 License:	BSD
 Group:		X11/Applications/Publishing
 Source0:	http://www.stacken.kth.se/project/pptout/files/%{name}-%{version}.tar.bz2
 # Source0-md5:	5d35d32dce802a627e48531207db62ce
-Patch0:		%{name}-gtkmm24.patch
+Patch0:		%{name}-cvs.patch
+Patch1:		%{name}-libxml++.patch
+Patch2:		%{name}-link.patch
+Patch3:		%{name}-gcc4.patch
 URL:		http://www.stacken.kth.se/project/pptout/
 BuildRequires:	autoconf >= 2.50
-BuildRequires:	automake
+BuildRequires:	automake >= 1.6
 BuildRequires:	gtkmm-devel >= 2.4.0
 BuildRequires:	libgnomecanvasmm-devel >= 2.6.0
 BuildRequires:	libxml++-devel >= 2.6.0
@@ -39,6 +42,9 @@ których typowymi przyk³adami s± magazyny, broszury i druczki.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
+%patch2 -p1
+%patch3 -p1
 
 %build
 %{__aclocal}
