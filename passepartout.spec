@@ -1,5 +1,5 @@
 Summary:	Passepartout - a DTP application for X
-Summary(pl):	Passepartout - aplikacja DTP dla X
+Summary(pl.UTF-8):   Passepartout - aplikacja DTP dla X
 Name:		passepartout
 Version:	0.6
 Release:	1
@@ -31,13 +31,13 @@ printer. The main focus is on making it easy for the user to create
 publications with a flexible layout, typical examples being magazines,
 brochures and leaflets.
 
-%description -l pl
-Passepartout to aplikacja DTP z otwartymi ¼ród³ami dla ¶rodowiska X
-Window System. Celem projektu jest stworzenie systemu bêd±cego w
-stanie wytwarzaæ materia³ profesjonalnej jako¶ci, ale tak¿e narzêdzia
-u¿ytecznego dla entuzjastów z dostêpem do drukarki. G³ównym celem jest
-u³atwienie u¿ytkownikom tworzenia publikacji z elastycznym uk³adem,
-których typowymi przyk³adami s± magazyny, broszury i druczki.
+%description -l pl.UTF-8
+Passepartout to aplikacja DTP z otwartymi ÅºrÃ³dÅ‚ami dla Å›rodowiska X
+Window System. Celem projektu jest stworzenie systemu bÄ™dÄ…cego w
+stanie wytwarzaÄ‡ materiaÅ‚ profesjonalnej jakoÅ›ci, ale takÅ¼e narzÄ™dzia
+uÅ¼ytecznego dla entuzjastÃ³w z dostÄ™pem do drukarki. GÅ‚Ã³wnym celem jest
+uÅ‚atwienie uÅ¼ytkownikom tworzenia publikacji z elastycznym ukÅ‚adem,
+ktÃ³rych typowymi przykÅ‚adami sÄ… magazyny, broszury i druczki.
 
 %prep
 %setup -q
