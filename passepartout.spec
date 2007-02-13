@@ -1,5 +1,5 @@
 Summary:	Passepartout - a DTP application for X
-Summary(pl.UTF-8):   Passepartout - aplikacja DTP dla X
+Summary(pl.UTF-8):	Passepartout - aplikacja DTP dla X
 Name:		passepartout
 Version:	0.6
 Release:	1
