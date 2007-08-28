@@ -50,10 +50,3 @@
  
  # Extra dependencies for builddate, so it is rebuilt every time anything else
  # is rebuilt
-@@ -47,4 +45,4 @@
- 
- # build a string out of the contents of AUTHORS
- authors.cc: $(top_srcdir)/AUTHORS
--	awk 'BEGIN {print "const char *authors ="} {print "\"" $$0 "\\n\""} END {print ";"}' $(top_srcdir)/AUTHORS > authors.cc
-\ Brak znaku nowej linii na koñcu pliku
-+	awk 'BEGIN {print "const char *authors ="} {print "\"" $$0 "\\n\""} END {print ";"}' $(top_srcdir)/AUTHORS > authors.cc
