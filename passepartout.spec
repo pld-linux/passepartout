@@ -1,23 +1,24 @@
 Summary:	Passepartout - a DTP application for X
 Summary(pl.UTF-8):	Passepartout - aplikacja DTP dla X
 Name:		passepartout
-Version:	0.6
+Version:	0.7.0
 Release:	1
 License:	BSD
 Group:		X11/Applications/Publishing
-Source0:	http://www.stacken.kth.se/project/pptout/files/%{name}-%{version}.tar.bz2
-# Source0-md5:	5d35d32dce802a627e48531207db62ce
-Patch0:		%{name}-cvs.patch
-Patch1:		%{name}-libxml++.patch
-Patch2:		%{name}-link.patch
-Patch3:		%{name}-gcc4.patch
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/passepartout/0.7/%{name}-%{version}.tar.bz2
+# Source0-md5:	1719b4a5dcf7edd02e5ec93f3b0e8318
+Patch0:		%{name}-libxml++.patch
+Patch1:		%{name}-link.patch
 URL:		http://www.stacken.kth.se/project/pptout/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1.6
+BuildRequires:	fam-devel
+BuildRequires:	freetype-devel >= 2.0
 BuildRequires:	gtkmm-devel >= 2.4.0
 BuildRequires:	libgnomecanvasmm-devel >= 2.6.0
 BuildRequires:	libxml++-devel >= 2.6.0
 BuildRequires:	libsigc++-devel >= 2.0
+# optional: libgnome-devel >= 2.0, gnome-vfs2-devel >= 2.0
 Requires:	ghostscript
 Requires:	libxslt-progs
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -43,8 +44,6 @@ których typowymi przykładami są magazyny, broszury i druczki.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
-%patch3 -p1
 
 %build
 %{__aclocal}
